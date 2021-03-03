@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>h5</title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
+	</head>
+	<body onload="loading()">
+		<div class="container">
+			<div class="music" onclick="autoPlay()">
+				<img class="play" src="img/play.png"></img>
+				<img class="pause" src="img/pause.png"></img>
+			</div>
+			
+			<video id="video" width="100%" height="100%" autoplay="autoplay" loop="loop" muted>
+				<source src="img/video.mp4" type="video/mp4"></source>
+			</video>
+			
+			<button class="next" onclick="toUrl()">跳过</button>
+		</div>
+	</body>
+	
+	<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+	</script>
+	<script type="text/javascript">
+		var video = document.getElementById('video');
+		function loading(){
+			if(video.paused){
+				video.play();     
+			}
+			setTimeout(function(){ 
+				$(".next").show();   
+			}, 2000);
+		}
+		
+		
+		function toUrl(){
+			console.log("11111")
+			window.location.href="index3.html"; 
+		}
+		
+		function autoPlay(){
+			if(video.muted){    
+				video.muted = false;  
+				$(".play").show();   
+				$(".pause").hide();    
+			}else{    
+				video.muted = true;  
+				$(".play").hide();   
+				$(".pause").show(); 
+			}     
+		}
+	</script>
+</html>

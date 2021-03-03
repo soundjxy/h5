@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>h5</title>
+		<script src="js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
+	</head>
+	<body onload="loading()">
+		<div class="container">
+			<div class="music" onclick="autoPlay()">
+				<img class="play" src="img/play.png"></img>
+				<img class="pause" src="img/pause.png"></img>
+			</div>
+			<audio id="myaudio" controls="controls" loop="loop" src="img/music.mp3"  hidden="true">
+         <!-- <source type="audio/mpeg"> -->
+			</audio>
+			
+			<div class="title">常州广播电视台</div>
+			
+			<button class="half" onclick="toUrl(1)">
+				再拆一个
+			</button>
+			<button class="half" onclick="toUrl(2)">
+				送一个盲盒
+			</button>
+		</div>
+		
+		<div class="pop">
+			<p>1、点击右上角转发</p>
+			<button type="button" onclick="hide()">我知道了</button>
+		</div>
+	</body>
+	<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+	</script>
+	<script type="text/javascript">
+		var audio = document.getElementById('myaudio');
+		function loading(){
+			autoPlay();
+		}
+		
+		function autoPlay(){
+			if(audio.paused){    
+				audio.play();    
+				$(".play").show();   
+				$(".pause").hide();    
+			}else{    
+				audio.pause();    
+				$(".play").hide();   
+				$(".pause").show();   
+			}     
+		}
+		
+		function toUrl(type){
+			if(type == 1){
+				window.location.href="index1.html"; 
+			}else{
+				$(".pop").fadeIn();			
+				setTimeout(function(){ 
+					$(".pop").fadeOut();   
+				}, 3000);
+			}
+		}
+		function hide(){
+			$(".pop").fadeOut();  
+		}
+	</script>
+</html>
